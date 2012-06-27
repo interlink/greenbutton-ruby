@@ -18,7 +18,16 @@ data.each do |e|
 end
 
 puts "Data starts from: #{data.start_date} and goes till: #{data.end_date}"
-puts "Total cost: #{data.total_costw, Total usage: #{data.total_usage}"
+puts "Total cost: #{data.total_cost}, Total usage: #{data.total_usage}"
+```
+
+You can apply simple Enumerable operations to GreenButtonData as well:
+
+```ruby
+total_cost = data.reduce(0) { |sum, e| sum + e.cost }
+
+all_costs = data.map { |e| e.cost }
+# all_costs = [1.21, 2.32, 1.34 ...]
 ```
 
 Work in Progress
