@@ -30,9 +30,20 @@ all_costs = data.map { |e| e.cost }
 # all_costs = [1.21, 2.32, 1.34 ...]
 ```
 
+License
+-------
+
+This software is provided under the MIT license.  Please read the accompanied LICENSE for more details.
+
 Work in Progress
 ----------------
 
 This library is a work in progress and new features are being added constantly. Stay tuned!
 
+Thanks to
+---------
+
+This project has been sponsored by [Interlink Network Systems].  Thanks!
+
 [GreenButton]: http://www.greenbuttondata.org/
+[Interlink Network Systems]: http://www.ilinknet.com/
