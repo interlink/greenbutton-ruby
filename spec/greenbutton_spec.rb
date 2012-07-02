@@ -49,6 +49,10 @@ describe GreenButton::GreenButtonData do
       @data.should_not respond_to(:usage_for_period=)
     end
 
+    it "should form a string representation correctly" do
+      @data.to_s.should == "#{@time + 10} to: #{@time+110}, usage: #{'%.2f' % @total_usage}kWh, cost: $#{'%.2f' % @total_cost}"
+    end
+
     it "should allow iteration over each entry" do
       @data.each do |e|
         e.should respond_to(:cost)

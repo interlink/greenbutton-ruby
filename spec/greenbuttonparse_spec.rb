@@ -933,5 +933,15 @@ describe GreenButton::GreenButtonData do
         @out[1].usage.should == 40.0
       end
     end
+
+    describe "with valid readings xml and a block given" do
+      before do
+        @data = GreenButton::GreenButtonData.new(valid_xml) { |d| @data_read = d }
+      end
+
+      it "the block must receive the correct data" do
+        @data.zip(@data_read).map { |a, b| a == b }.all?.should == true
+      end
+    end
   end
 end

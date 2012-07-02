@@ -9,22 +9,36 @@ Basic Usage
 -----------
 
 Basically, this gem provides a convenient way to load and inspect GreenButton data.  It will take care or normalizing
-energy usage to kWh and cost to USD by taking into account the multiplier.
+energy usage to kWh and cost to USD by taking into account the multiplier and other related parameters specified in the
+provided XML.
 
 You can use this library like this:
+```ruby
+GreenButton::GreenButtonData.new("mydata.xml") do | entries |
+    entries.each |e|
+        puts e
+    end
+end
+```
 
+If you prefer not to provide a block during initialization, you can always access loaded
+data like this:
 ```ruby
 data = GreenButton::GreenButtonData.new("mydata.xml")
 data.each do |e|
-    puts "#{e.start_date} -> #{e.end_date}: Cost: #{e.cost}, Usage: #{e.usage}"
+    puts e
 end
-
-puts "Data starts from: #{data.start_date} and goes till: #{data.end_date}"
-puts "Total cost: #{data.total_cost}, Total usage: #{data.total_usage}"
 ```
 
-You can apply simple Enumerable operations to GreenButtonData as well:
+The loaded data object and the entries there-in print information about loaded data:
+```ruby
+# print sumary of loaded data-set
+puts data
+# prints something like:
+# 2012-07-02 01:16:47 -0500 to: 2012-07-02 01:18:27 -0500, usage: 275.00kWh, cost: $550.00
+```
 
+This is a more flexible way of accessing data since it allows simple Enumerable operations:
 ```ruby
 total_cost = data.reduce(0) { |sum, e| sum + e.cost }
 

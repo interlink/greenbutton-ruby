@@ -18,12 +18,13 @@ describe GreenButton::GreenButtonEntry do
       @entry.should respond_to(:usage)
     end
 
-    it "should respond to allow writing any values " do
-      @entry.should respond_to(:start_date=)
-      @entry.should respond_to(:end_date=)
-      @entry.should respond_to(:duration=)
-      @entry.should respond_to(:cost=)
-      @entry.should respond_to(:usage=)
+    it "should not respond to allowing writing any values " do
+
+      @entry.should_not respond_to(:start_date=)
+      @entry.should_not respond_to(:end_date=)
+      @entry.should_not respond_to(:duration=)
+      @entry.should_not respond_to(:cost=)
+      @entry.should_not respond_to(:usage=)
     end
 
     it "should report the correct values" do
@@ -43,6 +44,10 @@ describe GreenButton::GreenButtonEntry do
     it "should compare correctly when start times are same and durations are different" do
       (@entry3 <=> @entry2).should == -1 # entry3 should be smaller than entry2 since it's duration is smaller
       (@entry2 <=> @entry3).should == 1
+    end
+
+    it "should generate the correct string representation" do
+      @entry.to_s.should == "#{@time} to: #{@time+100}, usage: #{'%.2f' % 10.00}kWh, cost: $#{'%.2f' % 10.00}"
     end
   end
 

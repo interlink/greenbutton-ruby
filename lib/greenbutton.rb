@@ -14,12 +14,17 @@ module GreenButton
   end
 
   class GreenButtonEntry
-    attr_accessor :start_date, :end_date, :duration, :usage, :cost
+    attr_reader :start_date, :end_date, :duration, :usage, :cost
 
     def initialize(start_date, duration, usage, cost)
       @start_date, @end_date, @duration, @usage, @cost =
         start_date, start_date + duration, duration, usage, cost
     end
+
+    def to_s
+      "#{@start_date} to: #{@end_date}, usage: #{'%.2f' % @usage }kWh, cost: $#{'%.2f' % @cost}"
+    end
+
 
     def <=>(other)
       res = self.start_date <=> other.start_date
@@ -47,6 +52,11 @@ module GreenButton
           d.end_date
         end
       end unless @entries.empty?
+      yield @entries if block_given?
+    end
+
+    def to_s
+      "#{self.start_date} to: #{self.end_date}, usage: #{'%.2f' % self.total_usage }kWh, cost: $#{'%.2f' % self.total_cost}"
     end
 
     def each
