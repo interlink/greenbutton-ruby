@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/Interlink/greenbutton-ruby.png)](http://travis-ci.org/Interlink/greenbutton-ruby)
+
 Introduction
 ------------
 
