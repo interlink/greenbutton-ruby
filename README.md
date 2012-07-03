@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/Interlink/greenbutton-ruby.png)](http://travis-ci.org/Interlink/greenbutton-ruby)
+[![Build Status](https://secure.travis-ci.org/interlink/greenbutton-ruby.png)](http://travis-ci.org/interlink/greenbutton-ruby)
 
 Introduction
 ------------
