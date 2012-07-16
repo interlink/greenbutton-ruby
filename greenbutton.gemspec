@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'greenbutton'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2012-06-26'
   s.summary     = 'GreenButton Parser'
   s.description = 'GreenButton data parser for Ruby'
